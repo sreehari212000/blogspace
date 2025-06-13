@@ -9,10 +9,10 @@ import { ImLink } from "react-icons/im";
 
 
 const PostCard = ({post}) => {
-    const {title, imageUrl, author:{email}} = post
+    const {title, imageUrl, author:{email}, _id} = post
   return (
       <div className='w-fit px-5 py-3 rounded-md bg-gray-900 hover:shadow-gray-600 hover:shadow-md'>
-        <Link to={'/blog/:blogId'}>
+        <Link to={`/blog/${_id}`}>
             <h1 className='text-xl mb-10'>{title}</h1>
             <img src={`http://localhost:8000/${imageUrl}`} alt="" className='w-96 h-48  object-fill rounded-md'/>
         </Link>

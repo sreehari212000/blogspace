@@ -43,7 +43,7 @@ router.post('/', checkAuth, async (req, res, next)=>{
 router.get('/:postId', async(req, res, next)=>{
     const postId = req.params.postId
     try {
-        const post = await Post.findById(postId)
+        const post = await Post.findById(postId).populate({path: 'author', select:"-password"})
         if(!post){
             const er = new Error("Could not find post!")
             er.statusCode = 404

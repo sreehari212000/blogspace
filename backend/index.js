@@ -41,7 +41,7 @@ app.use((req, res, next)=>{
 // routes
 app.use('/api/posts', postRoutes)
 app.use('/api/users', userRoutes)
-app.use('/api/comments')
+// app.use('/api/comments')
 
 
 app.use(errorHandler)

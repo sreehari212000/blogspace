@@ -19,6 +19,7 @@ function App() {
                 <Route path='/signup' element={<Signup />}/>
                 <Route path='/add-new' element={<ProtectedRoute><AddNew /></ProtectedRoute>}/>
                 <Route path='/blog/:blogId' element={<SingleBlog />}/>
+                <Route path='*' element={"not found"}/>
             </Route>
         </Routes>
     </div>

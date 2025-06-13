@@ -22,7 +22,6 @@ function Home() {
     useEffect(()=>{
         fetchPosts()
     }, [])
-  console.log(posts);
 
   if(loading){
     return (
