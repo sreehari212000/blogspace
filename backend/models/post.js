@@ -1,5 +1,4 @@
 import mongoose, { Schema } from "mongoose";
-
 const postSchema = new mongoose.Schema({
     title: {
         type: String,
@@ -17,9 +16,5 @@ const postSchema = new mongoose.Schema({
         ref: 'user'
     }
 }, {timestamps: true})
-
-
 const Post = mongoose.model('post', postSchema)
-
-
 export default Post

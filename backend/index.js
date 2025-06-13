@@ -6,13 +6,9 @@ import multer from "multer";
 import errorHandler from "./middlewares/error.js"
 import path from "path"
 import { fileURLToPath } from "url";
-
 const app = express()
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
-
 const storage = multer.diskStorage({
     destination: (req, file, cb)=>{
         cb(null, 'images')
@@ -21,8 +17,6 @@ const storage = multer.diskStorage({
         cb(null, Date.now()+"-"+file.originalname)
     }
 })
-
-
 // middlewares
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())
@@ -35,19 +29,11 @@ app.use((req, res, next)=>{
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
     next()
 })
-
-
-
 // routes
 app.use('/api/posts', postRoutes)
 app.use('/api/users', userRoutes)
 // app.use('/api/comments')
-
-
 app.use(errorHandler)
-
-
-
 const PORT = 8000
 mongoose.connect('mongodb://127.0.0.1:27017/blogspace')
 .then(()=>{

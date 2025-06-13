@@ -1,12 +1,7 @@
 import express from "express";
 import Post from "../models/post.js";
 import { checkAuth } from "../middlewares/auth.js";
-
-
-
 const router = express.Router()
-
-
 router.get('/', async (req, res, next)=>{
     try {
         const posts = await Post.find({}).populate('author')
@@ -18,7 +13,6 @@ router.get('/', async (req, res, next)=>{
     }
     
 })
-
 router.post('/', checkAuth, async (req, res, next)=>{
     if(!req.body.title || !req.body.content){
         const error = new Error('Please fill in all the required fields!')
@@ -39,7 +33,6 @@ router.post('/', checkAuth, async (req, res, next)=>{
         next(error)
     }
 })
-
 router.get('/:postId', async(req, res, next)=>{
     const postId = req.params.postId
     try {
@@ -56,7 +49,4 @@ router.get('/:postId', async(req, res, next)=>{
         next(error)
     }
 })
-
-
-
 export default router

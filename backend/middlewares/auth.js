@@ -1,8 +1,6 @@
 import jwt from "jsonwebtoken"
 import User from "../models/user.js"
 const SECRETKEY = "secret@123"
-
-
 export const checkAuth = async (req, res, next) =>{
     if(!req.headers.authorization){
         const error = new Error("You are not authenticated")

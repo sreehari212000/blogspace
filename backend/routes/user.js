@@ -4,9 +4,7 @@ import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
 import { checkAuth } from "../middlewares/auth.js"
 const SECRETKEY = "secret@123"
-
 const router = express.Router()
-
 router.post('/signup', async(req, res, next)=>{
     const {name, email, password} = req.body
     if(!name || !email || !password){
@@ -28,11 +26,8 @@ router.post('/signup', async(req, res, next)=>{
     }
     
 })
-
 router.post('/signin', async(req, res, next)=>{
-    const {email, password} = req.body
-    console.log(req.body);
-    
+    const {email, password} = req.body  
     if(!email || !password){
         const error = new Error('Please fill in all the fields')
         error.statusCode = 401
@@ -59,13 +54,9 @@ router.post('/signin', async(req, res, next)=>{
         error.statusCode = error.statusCode || 500
         next(error)
     }
-
 })
-
 router.get('/profile', checkAuth,async(req, res, next)=>{
     res.json({status: "Ok", user: req.user})
 })
-
-
 
 export default router
