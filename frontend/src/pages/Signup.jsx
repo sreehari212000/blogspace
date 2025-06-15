@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 function Signup() {
-    
     const [authdata, setAuthdata] = useState({name: '', email: '', password:'', confirmpassword: ''})
     const [error, setError] = useState('')
     const navigate = useNavigate()
-
     const handleInputChange = (e)=>{
         setAuthdata({...authdata, [e.target.name]: e.target.value})
     }
-    
     const handleSignup = async(e)=>{
         e.preventDefault()
         if(!authdata.name || !authdata.email || !authdata.password || !authdata.confirmpassword){
@@ -21,9 +17,8 @@ function Signup() {
             setError('Password and confirm password do not match!')
             return
         }
-
         try {
-            const response = await fetch('http://localhost:8000/api/users/signup', {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_BASE_URL}/api/users/signup`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -38,17 +33,14 @@ function Signup() {
         } catch (error) {
             console.log(error);
             setError(error.message)
-        }
-        
+        }   
     }
-
     useEffect(()=>{
         const timeout = setTimeout(() => {
             setError('')
         }, 3000);
         return ()=> clearTimeout(timeout)
     }, [error])
-
 
   return (
     <div className="w-[80%] md:w-[60%] 2xl:w-[20%]  mx-auto mt-20 lg:mt-40 flex flex-col gap-5 p-5  md:p-10 bg-white bg-opacity-5 rounded-lg">

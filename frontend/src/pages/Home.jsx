@@ -6,7 +6,7 @@ function Home() {
     const [loading, setLoading] = useState(true)
     const fetchPosts = async()=>{
         try {
-            const res = await fetch('http://localhost:8000/api/posts')
+            const res = await fetch(`${import.meta.env.VITE_BACKEND_BASE_URL}/api/posts`)
             const data = await res.json()
             if(data.status === 'Fail'){
                 throw new Error('Oops! Could not fetch posts!')

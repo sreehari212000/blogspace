@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blogspace-frontend-deployment
+  labels:
+    app: blogspace-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blogspace-frontend
+  template:
+    metadata:
+      labels:
+        app: blogspace-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: sreeharij/blogspace-frontend:latest
+        ports:
+        - containerPort: 80

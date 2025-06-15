@@ -14,7 +14,7 @@ const PostCard = ({post}) => {
       <div className='w-fit px-5 py-3 rounded-md bg-gray-900 hover:shadow-gray-600 hover:shadow-md'>
         <Link to={`/blog/${_id}`}>
             <h1 className='text-xl mb-10'>{title}</h1>
-            <img src={`http://localhost:8000/${imageUrl}`} alt="" className='w-96 h-48  object-fill rounded-md'/>
+            <img src={`${import.meta.env.VITE_BACKEND_BASE_URL}/${imageUrl}`} alt="" className='w-96 h-48  object-fill rounded-md'/>
         </Link>
         <div className='mt-5 flex items-center justify-between px-2'>
             <p className='hover:text-white'>@{email}</p>

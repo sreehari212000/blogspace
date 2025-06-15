@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blogspace-backend-deployment
+  labels:
+    app: blogspace-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blogspace-backend
+  template:
+    metadata:
+      labels:
+        app: blogspace-backend
+    spec:
+      containers:
+      - name: backend
+        image: sreeharij/blogspace-backend:latest
+        ports:
+        - containerPort: 8000

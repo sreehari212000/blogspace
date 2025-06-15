@@ -7,8 +7,6 @@ import Signup from './pages/Signup'
 import SingleBlog from './pages/SingleBlog'
 import AddNew from './pages/AddNew'
 import ProtectedRoute from './components/ProtectedRoute'
-
-
 function App() {
   return (
     <div>
@@ -25,5 +23,4 @@ function App() {
     </div>
   )
 }
-
 export default App
