@@ -45,6 +45,7 @@ npm run dev
 ```
 
 ## If you have docker installed on your machine
+No need to install dependencies for frontend and backend just run the below command
 ```
 docker compose up --build
 ```
