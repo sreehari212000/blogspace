@@ -1,4 +1,5 @@
 # BLOGIFY
+This MERN stack blogging application allows users to create and share blog posts with rich text formatting using a React Quill editor. Users can upload and display images alongside their content, enabling visually engaging posts. The platform supports seamless integration between the frontend and backend for real-time content management and storage. 
 
 ## TECHNOLOGIES USED 
  - React js 
