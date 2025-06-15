@@ -8,6 +8,8 @@
  - Node js
  - Mongo DB
  - JWT
+ - Docker
+ - Kubernetes
 
 ## Setting up project locally
 - Make sure you have node and npm installed on your machine
@@ -41,3 +43,7 @@ npm install
 npm run dev
 ```
 
+## If you have docker installed on your machine
+```
+docker compose up --build
+```
