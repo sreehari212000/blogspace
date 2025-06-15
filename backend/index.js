@@ -6,6 +6,8 @@ import multer from "multer";
 import errorHandler from "./middlewares/error.js"
 import path from "path"
 import { fileURLToPath } from "url";
+import { config } from "dotenv";
+config()
 const app = express()
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -35,10 +37,10 @@ app.use('/api/users', userRoutes)
 // app.use('/api/comments')
 app.use(errorHandler)
 const PORT = 8000
-mongoose.connect('mongodb://127.0.0.1:27017/blogspace')
+mongoose.connect(process.env.MONGO_DB_URI)
 .then(()=>{
-    app.listen(PORT, ()=>{
-        console.log(`Server started on http://localhost:${PORT}`); 
+    app.listen(process.env.PORT, ()=>{
+        console.log(`Server started on http://localhost:${process.env.PORT}`); 
     })
 })
 .catch((e)=>{
