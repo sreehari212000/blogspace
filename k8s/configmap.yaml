@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: blogspace-configmap
+data:
+  MONGO_DB_URI: mongodb://blogspace-mongo:27017/blogspace
+  PORT: "8000"
+  VITE_BACKEND_BASE_URL: "http://blogspace-backend-service:8000"

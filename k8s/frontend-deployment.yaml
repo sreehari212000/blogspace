@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: sreeharij/blogspace-frontend:latest
+        image: sreeharij/blogspace-frontend:v2
         ports:
         - containerPort: 80

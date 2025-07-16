@@ -17,5 +17,11 @@ spec:
       containers:
       - name: backend
         image: sreeharij/blogspace-backend:latest
+        env: 
+          - name: MONGO_DB_URI
+            value: mongodb://blogspace-mongo:27017/blogspace
+          - name: PORT
+            value: "8000"
         ports:
         - containerPort: 8000
+        
